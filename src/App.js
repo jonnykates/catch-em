@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PokemonList from './PokemonList';
+import PokemonProfile from './PokemonProfile';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -11,7 +13,16 @@ function App() {
     });
   }, []);
 
-  return <PokemonList pokemon={pokemon} />;
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <PokemonList pokemon={pokemon} />
+        </Route>
+        <Route path="/:name" component={PokemonProfile} />
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
