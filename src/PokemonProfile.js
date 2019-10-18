@@ -5,24 +5,31 @@ export default class PokemonProfile extends Component {
   constructor() {
     super();
     this.state = {
-      pokeman: {}
-    }
+      name: '',
+      types: {}
+    };
   }
 
   componentDidMount() {
-    axios.get('https://pokeapi.co/api/v2/pokemon/' + this.props.match.params.name).then(res => {
-      // console.log(res.data);
-      this.setState({pokeman: res.data});
-    });
+    axios
+      .get('https://pokeapi.co/api/v2/pokemon/' + this.props.match.params.name)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ name: res.data.name });
+        this.setState({ types: res.data.types });
+      });
   }
 
   render() {
-    let pokeman = this.state.pokeman;
-
     return (
-      <div>
-        <p>{pokeman.name}</p>
-      </div>
+      <>
+        <a className="back-link" href="/">
+          Back to list
+        </a>
+        <div className="pokeman-profile">
+          <h1>{this.state.name}</h1>
+        </div>
+      </>
     );
   }
 }

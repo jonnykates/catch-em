@@ -14,14 +14,21 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <PokemonList pokemon={pokemon} />
-        </Route>
-        <Route path="/:name" component={PokemonProfile} />
-      </Switch>
-    </Router>
+    <>
+      <header className="site-header">
+        <a href="/">
+          <img className="site-logo" src="./pokemon-logo.png" alt="Pokemon Logo" />
+        </a>
+      </header>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <PokemonList pokemon={pokemon} />
+          </Route>
+          <Route path="/:name" component={PokemonProfile} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

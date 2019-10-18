@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import 'normalize';
+
+$red: #ff0000;
+$red-dark: #cc0000;
+$blue: #3b4cca;
+$yellow: #ffde00;
+$gold: #b3a125;
+$pink-1: #f857a6;
+$pink-2: #ff5858;
+$transition-duration: 0.1s;
+$transition-curve: ease;
+$border-radius: .25em;
+$font-size-small: .75em;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: $pink-1;
+}
+
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 3em;
+  background: linear-gradient(to right, $pink-1, $pink-2);
+}
+
+input[type="text"] {
+  padding: .8em;
+  border: 0;
+  border-radius: $border-radius;
+}
+
+.site-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.site-logo {
+  max-width: 300px;
+}
+
+.list-search {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  background: linear-gradient(to right, $pink-1, $pink-2);
+  position: sticky;
+  top: 0;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  font-size: 1.2em;
+  text-align: center;
+  background-color: rgba(#fff, .65);
+  transition: all $transition-duration $transition-curve;
+
+  &:focus {
+    background-color: #fff;
+  }
+}
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pokemon-card {
+  background-color: rgba(#fff,.75);
+  text-align: center;
+  border-radius: $border-radius;
+  transition: all $transition-duration $transition-curve;
+
+  a {
+    display: block;
+    padding: 1em;
+  }
+
+  &:hover {
+    background-color: #fff;
+    transform: scale(1.02);
+  }
+}
+
+.back-link {
+  display: block;
+  margin: 0 auto 2em;
+  text-align: center;
+  color: #fff;
+  font-size: $font-size-small;
+  opacity: .5;
+  transition: opacity $transition-duration $transition-curve;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.pokeman-profile {
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: $border-radius;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
