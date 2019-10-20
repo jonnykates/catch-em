@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import formatText from './utils/formatText';
+import LikeButton from './LikeButton';
 
 export default class PokemonProfile extends Component {
   constructor() {
@@ -20,7 +21,7 @@ export default class PokemonProfile extends Component {
       'https://pokeapi.co/api/v2/pokemon/' + this.props.match.params.name
     );
 
-    console.log(apiResults.data);
+    // console.log(apiResults.data);
 
     this.setState({
       name: apiResults.data.name,
@@ -39,6 +40,11 @@ export default class PokemonProfile extends Component {
           Back to list
         </a>
         <div className="pokeman-profile">
+          <LikeButton
+            likePokeman={this.props.likePokeman}
+            pokeman={this.state.name}
+            likedPokemon={this.props.likedPokemon}
+          />
           <img
             src={
               'https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/' +
@@ -47,7 +53,9 @@ export default class PokemonProfile extends Component {
             }
             alt={this.state.name}
           />
-          <h2 className="pokeman-profile--name">{formatText(this.state.name)}</h2>
+          <h2 className="pokeman-profile--name">
+            {formatText(this.state.name)}
+          </h2>
           <ul className="types-list">
             {this.state.types.map(type => (
               <li key={type.type.name} className={type.type.name}>
@@ -62,7 +70,9 @@ export default class PokemonProfile extends Component {
                 <td>
                   <ul>
                     {this.state.abilities.map(ability => (
-                      <li key={ability.ability.name}>{formatText(ability.ability.name)}</li>
+                      <li key={ability.ability.name}>
+                        {formatText(ability.ability.name)}
+                      </li>
                     ))}
                   </ul>
                 </td>

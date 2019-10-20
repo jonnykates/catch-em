@@ -7,28 +7,12 @@ export default class PokemonList extends Component {
   constructor() {
     super();
     this.state = {
-      searchTerm: '',
-      likedPokemon: JSON.parse(localStorage.getItem('likedPokemon')) || []
+      searchTerm: ''
     };
   }
 
   updateSearch = e => {
     this.setState({ searchTerm: e.target.value });
-  };
-
-  likePokeman = pokeman => {
-    let newLikedPokemon;
-
-    if (this.state.likedPokemon.includes(pokeman)) {
-      newLikedPokemon = this.state.likedPokemon.filter(
-        item => item !== pokeman
-      );
-    } else {
-      newLikedPokemon = this.state.likedPokemon.concat(pokeman);
-    }
-
-    this.setState({ likedPokemon: newLikedPokemon });
-    localStorage.setItem('likedPokemon', JSON.stringify(newLikedPokemon));
   };
 
   render() {
@@ -55,9 +39,9 @@ export default class PokemonList extends Component {
           {filteredPokemon.map(pokeman => (
             <li key={pokeman} className="pokemon-card">
               <LikeButton
-                likePokeman={this.likePokeman}
+                likePokeman={this.props.likePokeman}
                 pokeman={pokeman}
-                likedPokemon={this.state.likedPokemon}
+                likedPokemon={this.props.likedPokemon}
               />
               <Link to={pokeman}>
                 <img
