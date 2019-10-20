@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import formatText from './utils/formatText';
 
 export default class PokemonList extends Component {
   constructor() {
@@ -26,14 +27,16 @@ export default class PokemonList extends Component {
         <div className="list-search">
           <input
             type="text"
+            className="search-bar"
             label="Search Pokemon"
+            placeholder="Search Pokemon"
             value={this.state.search}
             onChange={this.updateSearch}
           />
         </div>
         <ul className="pokemon-list">
           {filteredPokemon.map(pokeman => (
-            <li key={pokeman}>
+            <li key={pokeman} className="pokemon-card">
               <Link to={pokeman}>
                 <img
                   src={
@@ -43,7 +46,7 @@ export default class PokemonList extends Component {
                   }
                   alt={pokeman}
                 />
-                <h4>{pokeman}</h4>
+                <h4>{formatText(pokeman)}</h4>
               </Link>
             </li>
           ))}
