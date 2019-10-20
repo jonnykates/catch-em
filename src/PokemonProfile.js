@@ -53,12 +53,12 @@ export default class PokemonProfile extends Component {
             }
             alt={this.state.name}
           />
-          <h2 className="pokeman-profile--name">
+          <h2 className="pokeman-profile__name">
             {formatText(this.state.name)}
           </h2>
           <ul className="types-list">
             {this.state.types.map(type => (
-              <li key={type.type.name} className={type.type.name}>
+              <li key={type.type.name} className={"types-list__item types-list__item--" + type.type.name}>
                 {formatText(type.type.name)}
               </li>
             ))}

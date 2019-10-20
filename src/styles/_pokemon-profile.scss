@@ -1,0 +1,78 @@
+.back-link {
+  display: block;
+  margin: 0 auto 2em;
+  text-align: center;
+  color: #fff;
+  font-size: $font-size-small;
+  opacity: 0.5;
+  transition: opacity $transition-duration $transition-curve;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.pokeman-profile {
+  position: relative;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: $border-radius;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pokeman-profile__name {
+  margin-bottom: 0;
+}
+
+.types-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 2em;
+  padding: 0;
+  list-style: none;
+  font-size: 0.65em;
+}
+
+.types-list__item {
+  padding: 0.75em 1em;
+  margin: 0.5em;
+  background-color: $red;
+  border-radius: $border-radius;
+  color: #fff;
+}
+
+@each $value in $type-colours-index {
+  .types-list__item--#{nth($value, 1)} {
+    background-color: #{nth($value, 2)};
+  }
+}
+
+.stats-table {
+  width: 100%;
+  font-size: $font-size-small;
+
+  td {
+    width: 50%;
+    vertical-align: top;
+  }
+
+  td:first-child {
+    text-align: right;
+    color: lighten($dark-grey, 30%);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li:not(last-child) {
+    margin-bottom: 0.5em;
+  }
+}

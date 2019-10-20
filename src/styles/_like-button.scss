@@ -1,0 +1,31 @@
+.like-button {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:before {
+    content: '\f004';
+    line-height: 1;
+    font-family: 'FontAwesome';
+    font-size: 20px;
+    color: rgba($dark-grey, .2);
+    transition: color $transition-duration $transition-curve;
+  }
+
+  &:hover:before {
+    color: $dark-grey;
+  }
+
+  &.liked {
+    &:before {
+      color: $red;
+    }
+  }
+}

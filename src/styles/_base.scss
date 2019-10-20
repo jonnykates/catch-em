@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $pink-1;
+}
+
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 16px;
+  color: $dark-grey;
+  line-height: 1.4;
+  padding: 3em;
+  background: linear-gradient(to right, $pink-1, $pink-2);
+}
+
+input[type="text"] {
+  padding: .8em;
+  border: 0;
+  border-radius: $border-radius;
+}
+
+tr:nth-child(odd) {
+  background-color: $light-grey;
+}
+
+td {
+  padding: 1em;
+}

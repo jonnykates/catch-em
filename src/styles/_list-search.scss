@@ -1,0 +1,22 @@
+.list-search {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  background: linear-gradient(to right, $pink-1, $pink-2);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.list-search__input {
+  width: 100%;
+  max-width: 400px;
+  font-size: 1.2em;
+  text-align: center;
+  background-color: rgba(#fff, .65);
+  transition: all $transition-duration $transition-curve;
+
+  &:focus {
+    background-color: #fff;
+  }
+}

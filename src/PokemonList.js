@@ -28,7 +28,7 @@ export default class PokemonList extends Component {
         <div className="list-search">
           <input
             type="text"
-            className="search-bar"
+            className="list-search__input"
             label="Search Pokemon"
             placeholder="Search Pokemon"
             value={this.state.search}
@@ -43,7 +43,7 @@ export default class PokemonList extends Component {
                 pokeman={pokeman}
                 likedPokemon={this.props.likedPokemon}
               />
-              <Link to={pokeman}>
+              <Link to={pokeman} className="pokemon-card__link">
                 <img
                   src={
                     'https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/' +
