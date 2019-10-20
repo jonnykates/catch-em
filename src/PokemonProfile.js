@@ -78,7 +78,7 @@ export default class PokemonProfile extends Component {
                 </td>
               </tr>
               {this.state.stats.map(stat => (
-                <tr>
+                <tr key={stat.stat.name}>
                   <td>{formatText(stat.stat.name)}</td>
                   <td>{stat.base_stat}</td>
                 </tr>
