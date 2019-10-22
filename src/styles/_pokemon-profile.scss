@@ -76,3 +76,22 @@
     margin-bottom: 0.5em;
   }
 }
+
+@media (max-width: 768px) {
+  .stats-table {
+    text-align: center;
+
+    tr {
+      display: flex;
+      flex-direction: column;
+    }
+
+    td {
+      width: 100%;
+    }
+
+    td:first-child {
+      text-align: inherit;
+    }
+  }
+}

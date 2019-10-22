@@ -20,3 +20,13 @@
     background-color: #fff;
   }
 }
+
+@media (max-width: 768px) {
+  .list-search {
+    padding: 1em 0;
+  }
+
+  .list-search__input {
+    max-width: 100%;
+  }
+}
